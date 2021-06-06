@@ -3,7 +3,7 @@ import {render} from '@testing-library/react'
 import Weather from './Weather'
 import '@testing-library/jest-dom/extend-expect'
 
-test("Weather render", async () => {
+test("Weather render sunny", async () => {
     // AAA Arrange --> Act --> Assert
     const { findByRole } = render(<Weather temperature={10} state="sunny"/>)
 
