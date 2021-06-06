@@ -9,5 +9,5 @@ test("Weather render", async () => {
 
     const temp = await findByRole("heading")
 
-    expect(temp).toHaveTextContent("10")
+    expect(temp).toHaveTextContent("10") 
 })
