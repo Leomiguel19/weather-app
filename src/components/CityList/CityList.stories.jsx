@@ -6,4 +6,12 @@ export default {
     component: CityList
 }
 
-export const CityListExample = () => <CityList cities={[]} />
+const cities = [
+    { city: "Buenos Aires", country: "Argentina"},
+    { city: "Caracas", country: "Venezuela"},
+    { city: "Bógota", country: "Colombia"},
+    { city: "Ciudad de México", country: "México"},
+    { city: "Santiago", country: "Chile"},
+]
+
+export const CityListExample = () => <CityList cities={cities} />
