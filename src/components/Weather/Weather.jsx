@@ -17,7 +17,12 @@ const stateByName = {
 }
 
 const renderState = state => {
-    
+    const Icon = stateByName[state]
+
+    // let icon = stateByName[state] !== undefined ? stateByName[state] : stateByName["sunny"]
+    // const Icon = stateByName[state] && stateByName["sunny"]
+
+    return <Icon/>
 }
 
 const Weather = ({temperature, state}) => {
