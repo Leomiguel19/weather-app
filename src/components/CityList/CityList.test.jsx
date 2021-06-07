@@ -21,12 +21,12 @@ test("CityList render", async () => {
     expect(items).toHaveLength(5) 
 })
 
-test("CityList click o item", async () => {
+test("CityList click on item", async () => {
     // Debemos simular una acción del usuario: click sobre un item
     // Para eso vamos a utilizar una función "mock"
     const fnClickOnItem = jest.fn()
 
-    const { findAllByRole } = render(<CityList cities={cities} onClickCity={fnclickOnItem} />)
+    const { findAllByRole } = render(<CityList cities={cities} onClickCity={fnClickOnItem} />)
 
     const items = await findAllByRole("listitem")
 
