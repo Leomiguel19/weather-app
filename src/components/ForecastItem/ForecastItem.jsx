@@ -2,38 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import { WiCloud, 
-    WiDayCloudy,
-    WiDayFog,
-    WiDaySunny,
-    WiRain } from 'react-icons/wi'
 import { IconContext } from 'react-icons'
-
-const validValues = [
-    "cloud",
-    "cloudy",
-    "fog",
-    "sunny",
-    "rain",
-]
-
-const stateByName = {
-    cloud: WiCloud,
-    cloudy: WiDayCloudy,
-    fog: WiDayFog,
-    sunny: WiDaySunny,
-    rain: WiRain
-}
-
-const renderState = state => {
-    const IconState = stateByName[state]
-
-    // let icon = stateByName[state] !== undefined ? stateByName[state] : stateByName["sunny"]
-    // const Icon = stateByName[state] && stateByName["sunny"]
-
-    return <IconState/>
-}
-
+import IconState, {validValues} from './../IconState'
 
 const ForecastItem = ({ weekDay, hour, state, temperature }) => {
     return (
@@ -52,7 +22,7 @@ const ForecastItem = ({ weekDay, hour, state, temperature }) => {
 
             <Grid item>
                 <IconContext.Provider value={{ size: '5em'}}>                
-                    { renderState(state) }
+                    <IconState state={state}/>
                 </IconContext.Provider>
             </Grid>
 
