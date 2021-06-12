@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Grid from '@material-ui/core/Grid'
 import ForecastItem from './../ForecastItem'
+import {validValues} from './../IconState'
 
 const renderForecastItem = forecast => {
     const { weekDay, hour, state, temperature } = forecast
@@ -30,8 +31,23 @@ const Forecast = ({forecastItemList}) => {
     )
 }
 
+// forecastItemList es un array de elementos
+// Los elementos deben tener una "forma" en particular
+// Las siguientes propiedades:
+/*
+    weekDay: PropTypes.string.isRequired,
+    hour: PropTypes.number.isRequired,
+    state: PropTypes.oneOf(validValues).isRequired,
+    temperature: PropTypes.number.isRequired,
+
+*/
 Forecast.propTypes = {
-    forecastItemList: PropTypes.array.isRequired,
+    forecastItemList: PropTypes.shape({
+        weekDay: PropTypes.string.isRequired,
+        hour: PropTypes.number.isRequired,
+        state: PropTypes.oneOf(validValues).isRequired,
+        temperature: PropTypes.number.isRequired,
+    }).isRequired,
 }
 
 export default Forecast

@@ -21,8 +21,8 @@ const renderCityAndCountry = eventOnClikCity => cityAndCountry => {
                     <CityInfo city={city} country={country} />                    
                 </Grid>
                 <Grid item
-                md={4}
-                sm={12}>
+                    md={4}
+                    sm={12}>
                     <Weather temperature={10} state="sunny"/>
                 </Grid>
             </Grid>        
@@ -43,7 +43,10 @@ const CityList = ({cities, onClickCity}) => {
 }
 
 CityList.propTypes = {
-    cities: PropTypes.array.isRequired,
+    cities: PropTypes.shape({
+        city: PropTypes.string.isRequired,
+        country: PropTypes.string.isRequired,
+    }).isRequired,
     onClickCity: PropTypes.func.isRequired
 }
 
