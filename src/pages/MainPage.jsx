@@ -1,13 +1,18 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 
 const MainPage = props => {
+    const history = useHistory()
+
+    const onClickHandler = () => {
+        // history.push permite alterar la URL por programación
+        history.push("/city")
+    }
+
     return (
         <div>
-            Main
-            <div>
-                <Link to="/main">Volver al main</Link>
-            </div>
+            MainPage
+            <button onClick={onClickHandler}>Ir a City Page</button>
         </div>
     )
 }
