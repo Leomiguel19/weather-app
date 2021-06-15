@@ -10,23 +10,30 @@ const App = () => {
         <div>
             <h1>App</h1>
             <Router>
-                <div>
-                    <Link to="/main">
-                        Ir al main
-                    </Link>
-                </div>
                 <Switch>
                     <Route exact path="/">
                         Welcome
+                        <div>
+                            <Link to="/main">Ir al main</Link>
+                        </div>
                     </Route>
                     <Route path="/main">
                         Main
+                        <div>
+                            <Link to="/main">Volver al main</Link>
+                        </div>
                     </Route>
                     <Route path="/city">
                         City
+                        <div>
+                            <Link to="/main">Volver al main</Link>
+                        </div>                       
                     </Route>
                     <Route>
                         Not Found
+                        <div>
+                            <Link to="/main">Volver al main</Link>
+                        </div>
                     </Route>
                 </Switch>
             </Router>
