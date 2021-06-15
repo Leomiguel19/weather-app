@@ -44,5 +44,5 @@ const data = [
 ]
 
 export const ForecastChartExample = () => (
-    <ForecastChart/>
+    <ForecastChart data={data}/>
 )
