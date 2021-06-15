@@ -1,15 +1,15 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
 
-const MainPage = props => {
+const NotFoundPage = () => {
     return (
         <div>
-            Main
+            404 - Not Found
             <div>
                 <Link to="/main">Volver al main</Link>
-            </div>
+            </div>           
         </div>
     )
 }
 
-export default MainPage
+export default NotFoundPage
