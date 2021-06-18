@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Grid from '@material-ui/core/Grid'
 import CityInfo from './../CityInfo'
+import Grid from '@material-ui/core/Grid'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
 import Weather from './../Weather'
 
 // li: es un item (según tag html)
@@ -10,7 +12,10 @@ const renderCityAndCountry = eventOnClikCity => cityAndCountry => {
     const { city, country } = cityAndCountry
 
     return (
-        <li key={city} onClick={eventOnClikCity}>    
+        <ListItem 
+            button
+            key={city} 
+            onClick={eventOnClikCity}>    
             <Grid container
                 justify="center"
                 alignItems="center"
@@ -26,7 +31,7 @@ const renderCityAndCountry = eventOnClikCity => cityAndCountry => {
                     <Weather temperature={10} state="sunny"/>
                 </Grid>
             </Grid>        
-        </li>
+        </ListItem>
     )
 }
 
@@ -34,11 +39,11 @@ const renderCityAndCountry = eventOnClikCity => cityAndCountry => {
 // ul: tag html para listas no ordenadas
 const CityList = ({cities, onClickCity}) => {
     return (
-        <ul>
+        <List>
             {
                 cities.map(cityAndCountry => renderCityAndCountry(onClickCity)(cityAndCountry))
             }
-        </ul>
+        </List>
     )
 }
 
