@@ -1,14 +1,12 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import WelcomeScreen from './../components/WelcomeScreen'
+
 
 const WelcomePage = props => {
     return (
-        <div>
-            Welcome
-            <div>
-                <Link to="/main">Ir al main</Link>
-            </div>
-        </div>
+        <WelcomeScreen>
+
+        </WelcomeScreen>
     )
 }
 
