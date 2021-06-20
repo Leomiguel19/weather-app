@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography'
 import Toolbar from '@material-ui/core/Toolbar'
 import {WiDaySunny} from 'react-icons/wi'
 
-const AppFrame = props => {
+const AppFrame = ({children}) => {
     return (
         <Grid container
             justify="center">
@@ -37,14 +37,14 @@ const AppFrame = props => {
                     sm={11}
                     md={10}
                     bg={8}>
-                    Mi Aplicación Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, quaerat modi? Ipsum doloribus repellat, laudantium sapiente tempore sed explicabo perferendis quisquam culpa repudiandae sequi? Repellendus vitae similique ea ad voluptatem.
+                    {children}
                 </Grid>
         </Grid>
     )
 }
 
 AppFrame.propTypes = {
-
+    children: PropTypes.node,
 }
 
 export default AppFrame
