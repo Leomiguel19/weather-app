@@ -3,7 +3,6 @@ import { BrowserRouter as Router,
     Switch,
     Route,
     } from 'react-router-dom'
-import Grid from '@material-ui/core/Grid'
 import CityPage from './pages/CityPage'
 import MainPage from './pages/MainPage'
 import NotFoundPage from './pages/NotFoundPage'
