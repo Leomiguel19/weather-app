@@ -17,10 +17,12 @@ const WelcomeScreen = ({children}) => {
         // ... aún más corto, es igual a "!vanta"
         if(!vanta){
             // SOLO PASA UNA VEZ
+            // Acá vamos a hacer la inicialización de "vanta"
             setVanta(1) // Vanta = 1
             console.log("Establezco un valor diferente a 0")
         }
-    })
+    }, [vanta]) // Con esto me aseguro que siga funcionando bien 
+                // si tuviera más variables "use"
 
     return (
         <div ref={myRefDiv}>
