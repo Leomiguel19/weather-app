@@ -28,6 +28,16 @@ const WelcomeScreen = ({children}) => {
 
             console.log("Establezco un valor diferente a 0")
         }
+        // Al salir de la pantalla debemos detener el efecto
+        // y des-asociar todos los recursos (div + vanta effect)
+        return () => {
+            // Dentro de esta función se va a realizar la tarea
+            // de destruir los recursos tomados por "vanta"
+            if(vanta){
+                vanta.destroy()
+                console.log("Libero los recursos")
+            }
+        }
     }, [vanta]) // Con esto me aseguro que siga funcionando bien 
                 // si tuviera más variables "use"
 
