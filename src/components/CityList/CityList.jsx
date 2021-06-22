@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
+import axios from 'axios'
 import CityInfo from './../CityInfo'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
@@ -58,8 +59,15 @@ const CityList = ({cities, onClickCity}) => {
     const [allWeather, setallWeather] = useState({})
 
     useEffect(() => {
-
-    }, [])
+        const setWeather = (city) => {
+            const appid = "8ca8b92755d535817ffbe4b83167dea5"
+            axios
+            .get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`)
+        }
+        cities.forEach(({city, country}) => {
+            setWeather(city)
+        });
+    }, [cities])
 
     const weather = {temperature: 10, state: "sunny"}
     return (
