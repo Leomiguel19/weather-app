@@ -61,8 +61,14 @@ const CityList = ({cities, onClickCity}) => {
     useEffect(() => {
         const setWeather = (city) => {
             const appid = "8ca8b92755d535817ffbe4b83167dea5"
+            const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`
             axios
-            .get(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`)
+            .get(url)
+            .then(response => {
+                const {data} = response
+                const temperature = data.main.temp
+                const state = "sunny"
+            })
         }
         cities.forEach(({city, country}) => {
             setWeather(city)
