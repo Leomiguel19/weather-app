@@ -56,10 +56,10 @@ const CityList = ({cities, onClickCity}) => {
             [Santiago-Chile]: { },
         }
     */
-    const [allWeather, setallWeather] = useState({})
+    const [allWeather, setAllWeather] = useState({})
 
     useEffect(() => {
-        const setWeather = (city) => {
+        const setWeather = (city, country) => {
             const appid = "8ca8b92755d535817ffbe4b83167dea5"
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${appid}`
             axios
@@ -68,10 +68,11 @@ const CityList = ({cities, onClickCity}) => {
                 const {data} = response
                 const temperature = data.main.temp
                 const state = "sunny"
+                setAllWeather({ ...allWeather, [`${city}-${country}`]:{}})
             })
         }
         cities.forEach(({city, country}) => {
-            setWeather(city)
+            setWeather(city, country)
         });
     }, [cities])
 
