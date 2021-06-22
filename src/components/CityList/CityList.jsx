@@ -10,7 +10,7 @@ import Weather from './../Weather'
 // renderCityAndCountry se va a convertir en una función que retorna otra función
 const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
     const { city, country } = cityAndCountry
-    const {temperature, state} = weather
+    // const {temperature, state} = weather
     return (
         <ListItem 
             button
@@ -28,7 +28,15 @@ const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
                 <Grid item
                     md={3}
                     sm={12}>
-                    <Weather temperature={temperature} state={state}/>
+                    {
+                        weather ?
+                        (<Weather 
+                        temperature={weather.temperature} 
+                        state={weather.state}/>)
+                        :
+                        ("No hay datos")
+
+                    }
                 </Grid>
             </Grid>        
         </ListItem>
@@ -38,11 +46,27 @@ const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
 // cities: es un array, y en cada item tiene que tener la ciudad, pero además el país.
 // ul: tag html para listas no ordenadas
 const CityList = ({cities, onClickCity}) => {
+    /*
+        {
+            [Buenos Aires-argentina]: { },
+            [Caracas-Venezuela]: { },
+            [Bogota-Colombia]: { },
+            [Ciudad de México-México]: { },
+            [Santiago-Chile]: { },
+        }
+    */
+    const [allWeather, setallWeather] = useState({})
+
+    useEffect(() => {
+
+    }, [])
+
     const weather = {temperature: 10, state: "sunny"}
     return (
         <List>
             {
-                cities.map(cityAndCountry => renderCityAndCountry(onClickCity)(cityAndCountry, weather))
+                cities.map(cityAndCountry => renderCityAndCountry(onClickCity)(cityAndCountry, 
+                    allWeather[`${cityAndCountry.city}-${cityAndCountry.country}`]))
             }
         </List>
     )
