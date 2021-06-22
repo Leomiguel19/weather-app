@@ -80,7 +80,12 @@ const CityList = ({cities, onClickCity}) => {
                         [Buenos Aires-Argentina]: {temperature: 10, state: "sunny"}
                         [Caracas-Venezuela]: {temperature: 10, state: "sunny"}
                 */
-                setAllWeather({ ...allWeather, [propName]:propValue})
+               // set[VARIABLE_ESTADO](VARIABLE_ESTADO => VARIABLE_ESTADO + 1) 
+                setAllWeather(allWeather => {
+                    const result = { ...allWeather, [propName]:propValue}
+                    console.log("allWeather [result] ", result)
+                    return result
+                })
             })
         }
         cities.forEach(({city, country}) => {
