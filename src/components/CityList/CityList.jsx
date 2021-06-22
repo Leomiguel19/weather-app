@@ -71,6 +71,8 @@ const CityList = ({cities, onClickCity}) => {
 
                 const propName = `${city}-${country}` // Ej: [Buenos Aires-Argentina]
                 const propValue = {temperature, state} // Ej: {temperature: 10, state: "sunny"}
+
+                console.log("propName", propName)
                 /*
                 allWeather 1er pasada:
                     {
@@ -80,7 +82,7 @@ const CityList = ({cities, onClickCity}) => {
                         [Buenos Aires-Argentina]: {temperature: 10, state: "sunny"}
                         [Caracas-Venezuela]: {temperature: 10, state: "sunny"}
                 */
-               // set[VARIABLE_ESTADO](VARIABLE_ESTADO => VARIABLE_ESTADO + 1) 
+               // set[VARIABLE_ESTADO](VARIABLE_ESTADO => VARIABLE_ESTADO + 1)  
                 setAllWeather(allWeather => {
                     const result = { ...allWeather, [propName]:propValue}
                     console.log("allWeather [result] ", result)

@@ -7,7 +7,7 @@ import CityList from './../components/CityList'
 const cities = [
     { city: "Buenos Aires", country: "Argentina"},
     { city: "Caracas", country: "Venezuela"},
-    { city: "Bógota", country: "Colombia"},
+    { city: "Bogota", country: "Colombia"},
     { city: "Ciudad de México", country: "México"},
     { city: "Santiago", country: "Chile"},
 ]
