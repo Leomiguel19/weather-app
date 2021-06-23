@@ -13,6 +13,7 @@ const cities = [
     { city: "Bógota", country: "Colombia"},
     { city: "Ciudad de México", country: "México"},
     { city: "Santiago", country: "Chile"},
+    { city: "Madrid", country: "España"},
 ]
 
 export const CityListExample = () => <CityList cities={cities} onClickCity={action("Click en city")}/>

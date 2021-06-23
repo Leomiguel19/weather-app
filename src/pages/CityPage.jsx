@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import Grid from '@material-ui/core/Grid'
 import AppFrame from './../components/AppFrame'
 import CityInfo from './../components/CityInfo'

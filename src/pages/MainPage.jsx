@@ -10,6 +10,7 @@ const cities = [
     { city: "Bogota", country: "Colombia", countryCode: "CO"},
     { city: "Ciudad de México", country: "México", countryCode: "MX"},
     { city: "Santiago", country: "Chile", countryCode: "CL"},
+    { city: "Madrid", country: "España", countryCode: "ES"},
 ]
 
 const MainPage = props => {

@@ -5,8 +5,7 @@ import { WiDayCloudy,
     WiRain,
     WiSnow, 
     WiRaindrop,
-    WiThunderstorm,
-    WiDayThunderstorm} from 'react-icons/wi'
+    WiThunderstorm} from 'react-icons/wi'
 
 export const validValues = [
     "clouds",
