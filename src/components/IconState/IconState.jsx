@@ -24,7 +24,7 @@ const stateByName = {
     rain: WiRain,
     snow: WiSnow,
     drizzle: WiRaindrop,
-    thunderstorm: WiDayThunderstorm
+    thunderstorm: WiThunderstorm
 }
 
 const IconState = ({state}) => {
