@@ -19,7 +19,7 @@ test("CityList render", async () => {
 
     const items = await findAllByRole("button") 
 
-    expect(items).toHaveLength(5) 
+    expect(items).toHaveLength(6) 
 })
 
 test("CityList click on item", async () => {

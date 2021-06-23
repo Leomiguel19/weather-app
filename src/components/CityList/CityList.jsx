@@ -30,15 +30,9 @@ const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
                 <Grid item
                     md={3}
                     sm={12}>
-                    {
-                        weather ?
-                        (<Weather 
-                        temperature={weather.temperature} 
-                        state={weather.state}/>)
-                        :
-                        ("No hay datos")
-
-                    }
+                    <Weather 
+                        temperature={weather && weather.temperature} 
+                        state={weather && weather.state}/>
                 </Grid>
             </Grid>        
         </ListItem>
@@ -72,9 +66,6 @@ const CityList = ({cities, onClickCity}) => {
 
                 const propName = `${city}-${country}` // Ej: [Buenos Aires-Argentina]
                 const propValue = {temperature, state} // Ej: {temperature: 10, state: "sunny"}
-
-                console.log("propName", propName)
-                console.log("propValue", propValue)
                 /*
                 allWeather 1er pasada: 
                     {
