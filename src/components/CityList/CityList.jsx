@@ -9,15 +9,16 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import Weather from './../Weather'
 
+const getCityCode = (city, countryCode) => `${city}-${countryCode}` 
 // li: es un item (según tag html)
 // renderCityAndCountry se va a convertir en una función que retorna otra función
 const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
-    const { city, country } = cityAndCountry
+    const { city, countryCode, country } = cityAndCountry
     // const {temperature, state} = weather
     return (
         <ListItem 
             button
-            key={city} 
+            key={getCityCode(city, countryCode)} 
             onClick={eventOnClikCity}>    
             <Grid container
                 justify="center"
@@ -43,20 +44,11 @@ const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
 // cities: es un array, y en cada item tiene que tener la ciudad, pero además el país.
 // ul: tag html para listas no ordenadas
 const CityList = ({cities, onClickCity}) => {
-    /*
-        {
-            [Buenos Aires-argentina]: { },
-            [Caracas-Venezuela]: { },
-            [Bogota-Colombia]: { },
-            [Ciudad de México-México]: { },
-            [Santiago-Chile]: { },
-        }
-    */
     const [allWeather, setAllWeather] = useState({})
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        const setWeather = async (city, country, countryCode) => {
+        const setWeather = async (city, countryCode) => {
             const appid = "8ca8b92755d535817ffbe4b83167dea5"
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${appid}`
             
@@ -67,7 +59,7 @@ const CityList = ({cities, onClickCity}) => {
                 const temperature = Number(convertUnits(data.main.temp).from("K").to("C").toFixed(0))
                 const state = data.weather[0].main.toLowerCase() 
     
-                const propName = `${city}-${country}` // Ej: [Buenos Aires-Argentina]
+                const propName = getCityCode(city, countryCode)
                 const propValue = {temperature, state} // Ej: {temperature: 10, state: "sunny"}
     
                 setAllWeather(allWeather => ({ ...allWeather, [propName]:propValue}))                                
@@ -81,12 +73,11 @@ const CityList = ({cities, onClickCity}) => {
                 }                            
             }
         }
-        cities.forEach(({city, country, countryCode}) => {
-            setWeather(city, country, countryCode)
+        cities.forEach(({city, countryCode}) => {
+            setWeather(city, countryCode)
         });
     }, [cities])
 
-    // const weather = {temperature: 10, state: "sunny"}
     return (
         <div>  
             {
@@ -95,7 +86,7 @@ const CityList = ({cities, onClickCity}) => {
             <List>
                 {
                     cities.map(cityAndCountry => renderCityAndCountry(onClickCity)(cityAndCountry, 
-                        allWeather[`${cityAndCountry.city}-${cityAndCountry.country}`]))
+                        allWeather[getCityCode(cityAndCountry.city, cityAndCountry.countryCode)]))
                 }
             </List>
         </div>
