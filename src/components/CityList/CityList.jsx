@@ -105,7 +105,7 @@ const CityList = ({cities, onClickCity}) => {
     return (
         <div>  
             {
-                error && <Alert severity="error">{error}</Alert>
+                error && <Alert onClose={() => setError(null)} severity="error">{error}</Alert>
             }          
             <List>
                 {
