@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import convertUnits from 'convert-units'
+import Alert from '@material-ui/lab/Alert'
 import CityInfo from './../CityInfo'
 import Grid from '@material-ui/core/Grid'
 import List from '@material-ui/core/List'
@@ -52,6 +53,7 @@ const CityList = ({cities, onClickCity}) => {
         }
     */
     const [allWeather, setAllWeather] = useState({})
+    const [error, setError] = useState(null)
 
     useEffect(() => {
         const setWeather = (city, country, countryCode) => {
@@ -84,10 +86,13 @@ const CityList = ({cities, onClickCity}) => {
                     const {data, status} = error.response
                     console.log("data", data)
                     console.log("status", status)
+                    setError("Ha ocurrido un error en el servidor del clima")
                 } else if (error.request) { // Errores que suceden por no llegar al servidor
                     console.log("Server inaccesible o no tengo internet")
+                    setError("Verifique la conexión a internet")
                 }else{ // Errores imprevistos
                     console.log("Errores imprevistos")
+                    setError("Error al cargar los datos")
                 }                            
             })
         }
@@ -98,12 +103,17 @@ const CityList = ({cities, onClickCity}) => {
 
     // const weather = {temperature: 10, state: "sunny"}
     return (
-        <List>
+        <div>  
             {
-                cities.map(cityAndCountry => renderCityAndCountry(onClickCity)(cityAndCountry, 
-                    allWeather[`${cityAndCountry.city}-${cityAndCountry.country}`]))
-            }
-        </List>
+                error && <Alert severity="error">{error}</Alert>
+            }          
+            <List>
+                {
+                    cities.map(cityAndCountry => renderCityAndCountry(onClickCity)(cityAndCountry, 
+                        allWeather[`${cityAndCountry.city}-${cityAndCountry.country}`]))
+                }
+            </List>
+        </div>
     )
 }
 
