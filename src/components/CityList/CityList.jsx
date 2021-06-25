@@ -56,45 +56,30 @@ const CityList = ({cities, onClickCity}) => {
     const [error, setError] = useState(null)
 
     useEffect(() => {
-        const setWeather = (city, country, countryCode) => {
+        const setWeather = async (city, country, countryCode) => {
             const appid = "8ca8b92755d535817ffbe4b83167dea5"
             const url = `https://api.openweathermap.org/data/2.5/weather?q=${city},${countryCode}&appid=${appid}`
-            axios
-            .get(url)
-            .then(response => {
+            
+            try{
+                const response = await axios.get(url)
+
                 const {data} = response
                 const temperature = Number(convertUnits(data.main.temp).from("K").to("C").toFixed(0))
                 const state = data.weather[0].main.toLowerCase() 
-
+    
                 const propName = `${city}-${country}` // Ej: [Buenos Aires-Argentina]
                 const propValue = {temperature, state} // Ej: {temperature: 10, state: "sunny"}
-                /*
-                allWeather 1er pasada: 
-                    {
-                        [Buenos Aires-Argentina]: {temperature: 10, state: "sunny"}
-                    }
-                allWeather 2da pasada:
-                        [Buenos Aires-Argentina]: {temperature: 10, state: "sunny"}
-                        [Caracas-Venezuela]: {temperature: 10, state: "sunny"}
-                */
-               // set[VARIABLE_ESTADO](VARIABLE_ESTADO => VARIABLE_ESTADO + 1)  
-                setAllWeather(allWeather => ({ ...allWeather, [propName]:propValue}))                
-                
-            })
-            .catch(error => {
+    
+                setAllWeather(allWeather => ({ ...allWeather, [propName]:propValue}))                                
+            }catch(error){
                 if(error.response){ // Errores que nos responde el server
-                    const {data, status} = error.response
-                    console.log("data", data)
-                    console.log("status", status)
                     setError("Ha ocurrido un error en el servidor del clima")
                 } else if (error.request) { // Errores que suceden por no llegar al servidor
-                    console.log("Server inaccesible o no tengo internet")
                     setError("Verifique la conexión a internet")
                 }else{ // Errores imprevistos
-                    console.log("Errores imprevistos")
                     setError("Error al cargar los datos")
                 }                            
-            })
+            }
         }
         cities.forEach(({city, country, countryCode}) => {
             setWeather(city, country, countryCode)
