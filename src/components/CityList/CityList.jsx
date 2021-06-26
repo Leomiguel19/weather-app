@@ -10,6 +10,7 @@ import ListItem from '@material-ui/core/ListItem'
 import Weather from './../Weather'
 
 const getCityCode = (city, countryCode) => `${city}-${countryCode}` 
+// Cambio
 // li: es un item (según tag html)
 // renderCityAndCountry se va a convertir en una función que retorna otra función
 const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
