@@ -25,6 +25,7 @@ const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
                 justify="center"
                 alignItems="center"
             >                 
+            
                 <Grid item
                     md={9}
                     sm={12}>
