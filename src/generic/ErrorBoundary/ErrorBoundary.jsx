@@ -24,6 +24,12 @@ class ErrorBoundary extends Component {
         console.log("El componente se ha montado")
     }
 
+    componentDidUpdate(prevProps, prevState){
+        console.log("Estado Previo: ", prevState.activo)
+        console.log("Estado nuevo: ", this.state.activo)
+        console.log("El componente se ha actualizado")
+    }
+
     render(){
         return(
             <div>
