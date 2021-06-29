@@ -20,6 +20,10 @@ class ErrorBoundary extends Component {
         this.setState({activo:true})
     }
 
+    componentDidMount(){
+        console.log("El componente se ha montado")
+    }
+
     render(){
         return(
             <div>
