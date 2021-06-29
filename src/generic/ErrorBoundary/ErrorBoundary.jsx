@@ -15,9 +15,15 @@ class ErrorBoundary extends Component {
         return this.state.activo ? "Activo": "No activo"
     }
 
+    onClickHandler = () => {
+        // setState
+        this.setState({activo:true})
+    }
+
     render(){
         return(
             <div>
+                <button onClick={this.onClickHandler}>Activar</button>
                 <h1>
                     ErrorBoundary {this.props.saludo} <br/>
                     {
