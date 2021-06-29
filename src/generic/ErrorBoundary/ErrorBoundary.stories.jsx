@@ -6,5 +6,7 @@ export default {
     component: ErrorBoundary
 }
 
-export const ErrorBoundaryExample = () => <ErrorBoundary/>
+export const ErrorBoundaryExample = () => (
+    <ErrorBoundary saludo="hola"/>
+)
 
