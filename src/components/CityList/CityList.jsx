@@ -13,14 +13,14 @@ const getCityCode = (city, countryCode) => `${city}-${countryCode}`
 // Cambio
 // li: es un item (según tag html)
 // renderCityAndCountry se va a convertir en una función que retorna otra función
-const renderCityAndCountry = eventOnClikCity => (cityAndCountry, weather) => {
+const renderCityAndCountry = eventOnClickCity => (cityAndCountry, weather) => {
     const { city, countryCode, country } = cityAndCountry
     // const {temperature, state} = weather
     return (
         <ListItem 
             button
             key={getCityCode(city, countryCode)} 
-            onClick={eventOnClikCity}>    
+            onClick={() => eventOnClickCity(city, countryCode)}>    
             <Grid container
                 justify="center"
                 alignItems="center"

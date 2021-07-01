@@ -16,9 +16,11 @@ const cities = [
 const MainPage = props => {
     const history = useHistory()
 
-    const onClickHandler = () => {
+    const onClickHandler = (city, countryCode) => {
         // history.push permite alterar la URL por programación
-        history.push("/city")
+        console.log("city: ", city)
+        console.log("countryCode: ", countryCode)
+        // history.push("/city")
     }
 
     return (
