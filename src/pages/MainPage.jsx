@@ -13,7 +13,6 @@ const cities = [
     { city: "Madrid", country: "España", countryCode: "ES"},
 ]
 
-
 const MainPage = props => {
     const history = useHistory()
 
@@ -21,7 +20,7 @@ const MainPage = props => {
         // history.push permite alterar la URL por programación
         console.log("city: ", city)
         console.log("countryCode: ", countryCode)
-        // history.push("/city")
+        history.push(`/city${countryCode}/${city}`)
     }
 
     return (
