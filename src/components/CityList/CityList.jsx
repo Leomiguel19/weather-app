@@ -72,6 +72,7 @@ const CityList = ({cities, onClickCity}) => {
                     setError("Verifique la conexión a internet")
                 }else{ // Errores imprevistos
                     setError("Error al cargar los datos")
+                    
                 }                            
             }
         }
