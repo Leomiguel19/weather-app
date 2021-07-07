@@ -73,7 +73,8 @@ const CityList = ({cities, onClickCity}) => {
                 }else{ // Errores imprevistos
                     setError("Error al cargar los datos")
                     
-                }                            
+                }         
+                                   
             }
         }
         cities.forEach(({city, countryCode}) => {
