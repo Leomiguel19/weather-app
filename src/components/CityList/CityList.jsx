@@ -67,6 +67,7 @@ const CityList = ({cities, onClickCity}) => {
                 setAllWeather(allWeather => ({ ...allWeather, [propName]:propValue}))                                
             }catch(error){
                 if(error.response){ // Errores que nos responde el server
+                    
                     setError("Ha ocurrido un error en el servidor del clima")
                 } else if (error.request) { // Errores que suceden por no llegar al servidor
                     setError("Verifique la conexión a internet")
