@@ -42,10 +42,10 @@ const dataExample = [
 ]
 
 const forecastItemListExample = [
-    { hour: 18, state:"sunny", temperature:17, weekDay:"Jueves" },
-    { hour: 12, state:"cloud", temperature:18, weekDay:"Viernes"},
-    { hour: 6, state:"cloudy", temperature:18, weekDay:"Viernes"},
-    { hour: 14, state:"cloudy", temperature:19, weekDay:"Viernes"},
+    { hour: 18, state:"clear", temperature:17, weekDay:"Jueves" },
+    { hour: 12, state:"clouds", temperature:18, weekDay:"Viernes"},
+    { hour: 6, state:"clouds", temperature:18, weekDay:"Viernes"},
+    { hour: 14, state:"clouds", temperature:19, weekDay:"Viernes"},
     { hour: 15, state:"rain", temperature:17, weekDay:"Sábado"},
     { hour: 9, state:"rain", temperature:17, weekDay:"Sábado"},
 ]
@@ -58,7 +58,7 @@ const CityPage = () => {
 
     const city = "Margarita"
     const country = "Porlamar"
-    const state = "cloudy"
+    const state = "clouds"
     const temperature = 20
     const humidity = 80
     const wind = 5
